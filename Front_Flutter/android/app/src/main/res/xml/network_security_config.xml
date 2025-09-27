@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<network-security-config>
+    <!-- Allow all SSL certificates for your specific domain -->
+    <domain-config cleartextTrafficPermitted="true">
+        <domain includeSubdomains="true">yasserashraf.atwebpages.com</domain>
+        <domain includeSubdomains="true">atwebpages.com</domain>
+        <trust-anchors>
+            <certificates src="system"/>
+            <certificates src="user"/>
+        </trust-anchors>
+    </domain-config>
+
+    <!-- Allow cleartext traffic and bypass SSL verification for development -->
+    <base-config cleartextTrafficPermitted="true">
+        <trust-anchors>
+            <certificates src="system"/>
+            <certificates src="user"/>
+        </trust-anchors>
+    </base-config>
+
+    <!-- Debug override - accepts all certificates (use only for testing) -->
+    <debug-overrides>
+        <trust-anchors>
+            <certificates src="system"/>
+            <certificates src="user"/>
+        </trust-anchors>
+    </debug-overrides>
+</network-security-config>
